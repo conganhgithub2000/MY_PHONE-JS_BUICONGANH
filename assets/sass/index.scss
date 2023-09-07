@@ -1,0 +1,230 @@
+$color-text-1: #17252a;
+$color-text-2: #feffff;
+$color-text-3: #def2f1;
+$color-bg-1: #3aafa9;
+$color-hover-1: #2b7a78;
+
+header {
+  background-color: $color-bg-1;
+  .navbar {
+    padding: 10px 0;
+
+    .navbar-brand {
+      .logo_icon {
+        width: 46px;
+      }
+      p {
+        font-size: 35px;
+        font-weight: 700;
+      }
+    }
+    .form_search {
+      width: 50%;
+      margin-left: 216px;
+      @media screen and (max-width: 992px) {
+        display: none;
+      }
+      input {
+        width: 60%;
+      }
+    }
+    .navbar-nav {
+      .nav-item {
+        &:hover .nav-link {
+          transition: all 0.7s;
+          color: #e3ee6b;
+        }
+        .nav-link {
+          padding: 10px;
+          color: black;
+          font-size: 16px;
+          font-weight: 500;
+          i {
+            margin-right: 4px;
+          }
+        }
+      }
+      button {
+        font-size: 16px;
+        color: #000;
+        font-weight: 500;
+        &:hover {
+          transition: all 0.6s;
+          color: #e3ee6b;
+        }
+      }
+    }
+  }
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+.carousel {
+  #carousel_Shop {
+    .carousel-indicators {
+      li {
+        background-color: $color-hover-1;
+      }
+    }
+    .carousel-inner {
+      .carousel-item {
+        height: 88vh;
+        img {
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+.content {
+  margin-bottom: 80px;
+  .title {
+    text-align: center;
+    h2 {
+      color: $color-text-1;
+      margin: 50px;
+    }
+  }
+  .form-group {
+    width: 20%;
+    @media screen and (max-width: 992px) {
+      width: 100%;
+    }
+  }
+  .form_cart {
+    .card-header {
+      background-color: $color-hover-1;
+      border-radius: 10px 10px 0 0;
+      color: $color-text-2;
+      .row {
+        button {
+          color: $color-text-2;
+          background-color: $color-bg-1;
+          font-weight: 500;
+          &:hover{
+            background-color: rgba(0, 0, 0, 0.7);
+          }
+        }
+      }
+    }
+  }
+  .content_item {
+    .row {
+      .bg_card {
+        .card_item {
+          min-height: 350px;
+          margin: 14px 0;
+          text-align: center;
+          border-radius: 8px;
+          padding: 10px;
+          position: relative;
+          overflow: hidden;
+          img {
+            height: 250px;
+            margin-top: 10px;
+          }
+          .card_item_body {
+            margin-top: 8px;
+            h4 {
+              height: 48px;
+            }
+            p {
+              margin: 10px;
+            }
+            .card_desc {
+              height: 40px;
+            }
+          }
+          .card_overlay {
+            opacity: 0;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.7);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            color: $color-text-2;
+            h2 {
+              margin: 40px;
+            }
+            .card_text {
+              margin: 10px 0 30px 15px;
+              text-align: left;
+            }
+            .card_link {
+              a {
+                color: $color-text-2;
+                font-size: 17px;
+                text-decoration: underline;
+              }
+              margin: 33px 0 64px;
+            }
+            button {
+              width: 66%;
+              margin: auto;
+              padding: 15px 0;
+              border-radius: 20px;
+              &:hover {
+                font-weight: 500;
+                color: #f3366f;
+                background-color: #e3ee6b;
+              }
+            }
+            &:hover {
+              opacity: 1;
+              transition: all 1s;
+            }
+          }
+          @media screen and (max-width: 575px) {
+            margin: 20px auto;
+            width: 72%;
+          }
+        }
+      }
+    }
+  }
+}
+
+footer {
+  .footer-sub {
+    padding: 20px 0 5px;
+    background-color: $color-bg-1;
+    .text-txt {
+      .row {
+        @media screen and (max-width: 576px) {
+          text-align: center;
+        }
+        ul {
+          padding-left: 0;
+          li {
+            list-style-type: none;
+            a {
+              text-decoration: none;
+              color: #000;
+            }
+          }
+        }
+        .contact_content {
+          a {
+            color: #000;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+  .copyright-footer {
+    background-color: #1f343b;
+    color: $color-text-2;
+    height: 40px;
+    text-align: center;
+    line-height: 32px;
+    a {
+      color: $color-bg-1;
+    }
+  }
+}

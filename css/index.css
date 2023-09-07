@@ -1,0 +1,203 @@
+header {
+  background-color: #3aafa9;
+}
+header .navbar {
+  padding: 10px 0;
+}
+header .navbar .navbar-brand .logo_icon {
+  width: 46px;
+}
+header .navbar .navbar-brand p {
+  font-size: 35px;
+  font-weight: 700;
+}
+header .navbar .form_search {
+  width: 50%;
+  margin-left: 216px;
+}
+@media screen and (max-width: 992px) {
+  header .navbar .form_search {
+    display: none;
+  }
+}
+header .navbar .form_search input {
+  width: 60%;
+}
+header .navbar .navbar-nav .nav-item:hover .nav-link {
+  transition: all 0.7s;
+  color: #e3ee6b;
+}
+header .navbar .navbar-nav .nav-item .nav-link {
+  padding: 10px;
+  color: black;
+  font-size: 16px;
+  font-weight: 500;
+}
+header .navbar .navbar-nav .nav-item .nav-link i {
+  margin-right: 4px;
+}
+header .navbar .navbar-nav button {
+  font-size: 16px;
+  color: #000;
+  font-weight: 500;
+}
+header .navbar .navbar-nav button:hover {
+  transition: all 0.6s;
+  color: #e3ee6b;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.carousel #carousel_Shop .carousel-indicators li {
+  background-color: #2b7a78;
+}
+.carousel #carousel_Shop .carousel-inner .carousel-item {
+  height: 88vh;
+}
+.carousel #carousel_Shop .carousel-inner .carousel-item img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.content {
+  margin-bottom: 80px;
+}
+.content .title {
+  text-align: center;
+}
+.content .title h2 {
+  color: #17252a;
+  margin: 50px;
+}
+.content .form-group {
+  width: 20%;
+}
+@media screen and (max-width: 992px) {
+  .content .form-group {
+    width: 100%;
+  }
+}
+.content .form_cart .card-header {
+  background-color: #2b7a78;
+  border-radius: 10px 10px 0 0;
+  color: #feffff;
+}
+.content .form_cart .card-header .row button {
+  color: #feffff;
+  background-color: #3aafa9;
+  font-weight: 500;
+}
+.content .form_cart .card-header .row button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.content .content_item .row .bg_card .card_item {
+  min-height: 350px;
+  margin: 14px 0;
+  text-align: center;
+  border-radius: 8px;
+  padding: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.content .content_item .row .bg_card .card_item img {
+  height: 250px;
+  margin-top: 10px;
+}
+.content .content_item .row .bg_card .card_item .card_item_body {
+  margin-top: 8px;
+}
+.content .content_item .row .bg_card .card_item .card_item_body h4 {
+  height: 48px;
+}
+.content .content_item .row .bg_card .card_item .card_item_body p {
+  margin: 10px;
+}
+.content .content_item .row .bg_card .card_item .card_item_body .card_desc {
+  height: 40px;
+}
+.content .content_item .row .bg_card .card_item .card_overlay {
+  opacity: 0;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #feffff;
+}
+.content .content_item .row .bg_card .card_item .card_overlay h2 {
+  margin: 40px;
+}
+.content .content_item .row .bg_card .card_item .card_overlay .card_text {
+  margin: 10px 0 30px 15px;
+  text-align: left;
+}
+.content .content_item .row .bg_card .card_item .card_overlay .card_link {
+  margin: 33px 0 64px;
+}
+.content .content_item .row .bg_card .card_item .card_overlay .card_link a {
+  color: #feffff;
+  font-size: 17px;
+  text-decoration: underline;
+}
+.content .content_item .row .bg_card .card_item .card_overlay button {
+  width: 66%;
+  margin: auto;
+  padding: 15px 0;
+  border-radius: 20px;
+}
+.content .content_item .row .bg_card .card_item .card_overlay button:hover {
+  font-weight: 500;
+  color: #f3366f;
+  background-color: #e3ee6b;
+}
+.content .content_item .row .bg_card .card_item .card_overlay:hover {
+  opacity: 1;
+  transition: all 1s;
+}
+@media screen and (max-width: 575px) {
+  .content .content_item .row .bg_card .card_item {
+    margin: 20px auto;
+    width: 72%;
+  }
+}
+
+footer .footer-sub {
+  padding: 20px 0 5px;
+  background-color: #3aafa9;
+}
+@media screen and (max-width: 576px) {
+  footer .footer-sub .text-txt .row {
+    text-align: center;
+  }
+}
+footer .footer-sub .text-txt .row ul {
+  padding-left: 0;
+}
+footer .footer-sub .text-txt .row ul li {
+  list-style-type: none;
+}
+footer .footer-sub .text-txt .row ul li a {
+  text-decoration: none;
+  color: #000;
+}
+footer .footer-sub .text-txt .row .contact_content a {
+  color: #000;
+  text-decoration: none;
+}
+footer .copyright-footer {
+  background-color: #1f343b;
+  color: #feffff;
+  height: 40px;
+  text-align: center;
+  line-height: 32px;
+}
+footer .copyright-footer a {
+  color: #3aafa9;
+}/*# sourceMappingURL=index.css.map */

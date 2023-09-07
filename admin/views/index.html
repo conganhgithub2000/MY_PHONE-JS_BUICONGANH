@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Shop - ASy</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="../../css/index.css" />
+  </head>
+  <body>
+    <header id="fix_header">
+      <nav class="navbar container navbar-expand-lg navbar-light">
+        <a class="navbar-brand d-flex align-items-center" href="../../index.html">
+          <img
+            class="logo_icon"
+            src="../../assets/img/logos-png-1.png"
+            alt=""
+          />
+          <p class="mb-0 ml-2">BCA</p>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div
+          class="collapse navbar-collapse justify-content-between"
+          id="navbarSupportedContent"
+        >
+          <form class="form_search form-inline my-2 my-lg-0">
+            <input
+              id="keyword"
+              class="form-control mr-sm-2"
+              type="search"
+              placeholder="nhập loại điện thoại cần tìm vào"
+              aria-label="Search"
+            />
+            <button class="btn btn-dark my-2 my-sm-0" type="submit">
+              Tìm Kiếm
+            </button>
+          </form>
+          <ul class="navbar-nav d-flex align-items-center">
+            <li class="nav-item active">
+              <a class="nav-link" href="../../customer/views/index.html"
+                ><i class="fa-solid fa-house"></i>Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                ><i class="fa-solid fa-user-gear"></i>ADmin</a
+              >
+            </li>
+            <!-- Button trigger modal -->
+            <button
+              type="button"
+              class="btn"
+              data-toggle="modal"
+              data-target="#exampleModalCenter"
+            >
+              <i class="logo_cart fa-solid fa-store"></i>
+              Cart
+            </button>
+
+            <!-- Modal -->
+            <div
+              class="modal fade"
+              id="exampleModalCenter"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalCenterTitle"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">
+                      Shopping Cart
+                    </h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="item-card">
+                      <div class="cart__list-text">
+                        <div class="product-text">
+                          <p>Product</p>
+                        </div>
+                        <div class="quanlity-text">
+                          <p>Quantity</p>
+                          <p>Total</p>
+                        </div>
+                      </div>
+                      <!-- cart item List -->
+                      <div class="cart__list-item" id="body_cart">
+                        <div class="cart__item">
+                          <div class="cart__item-content-left">
+                            <div class="cart__item-product-pic">
+                              <img
+                                src="../asset/img/iphone-14-bg5.jpg"
+                                alt="#"
+                              />
+                            </div>
+                            <div class="cart__item-product-description">
+                              <p class="name">Iphone 14 pro max</p>
+                              <p class="short-description">Color yellow</p>
+                              <div class="price">$300</div>
+                            </div>
+                          </div>
+                          <div class="cart__item-content-right">
+                            <div class="cart__item-button">
+                              <button class="btn-reduce">
+                                <i class="fa-solid fa-arrow-left"></i>
+                              </button>
+                              <span class="quantity">3</span>
+                              <button class="btn-increase">
+                                <i class="fa-solid fa-arrow-right"></i>
+                              </button>
+                              <button class="delete-cart-item">
+                                <i class="fa-solid fa-xmark"></i>
+                              </button>
+                            </div>
+                            <div class="cart__item-total">
+                              <p>
+                                "$"
+                                <span class="total-price-item">1125</span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-dismiss="modal"
+                      onclick="exit()"
+                    >
+                      Continue Shopping
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-danger"
+                      onclick="remo_cart()"
+                    >
+                      <i class="fa-solid fa-trash"></i>
+                      Empty Cart
+                    </button>
+                    <button type="button" class="btn btn-success">
+                      Pay Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <section class="content">
+      <div class="form_cart container">
+        <div class="card-header myCardHeader mt-4">
+          <div class="row">
+            <div class="col-8">
+              <h3 class="text-left font-weight-bold">
+                Phone Management
+              </h3>
+            </div>
+            <div class="col-4 text-right">
+              <button
+                class="btn"
+                id="btnThem"
+                data-toggle="modal"
+                data-target="#myModal"
+              >
+                <i class="fa-solid fa-circle-plus"></i> Add Phone
+              </button>
+            </div>
+          </div>
+        </div>
+        <table class="table table-bordered table-hover myTable mb-5">
+          <thead class="text-dark">
+            <tr
+              onclick="sapXepGia()"
+              data-title="price"
+              data-order="asc"
+              style="cursor: pointer"
+            >
+              <th>#</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Photo</th>
+              <th>Discription</th>
+              <th><em class="fa fa-cog"></em> Action</th>
+            </tr>
+          </thead>
+          <tbody id="tableDanhSach"></tbody>
+        </table>
+      </div>
+      <!-- The Modal -->
+      <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <header class="head-form mb-0 text-center p-3">
+              <h2 id="header-title">Log In</h2>
+            </header>
+            <!-- Modal body -->
+            <form id="productForm">
+              <div class="modal-body">
+                <form role="form">
+                  <div
+                    class="form-group w-100"
+                    id="input_maSo"
+                    style="display: none"
+                  >
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"
+                          ><i class="fa-solid fa-mobile-screen-button"></i
+                        ></span>
+                      </div>
+                      <input
+                        type="number"
+                        name="maso"
+                        id="MaSP"
+                        class="form-control input-sm"
+                        placeholder="Mã sản phẩm"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group w-100">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"
+                          ><i class="fa-solid fa-mobile-screen-button"></i
+                        ></span>
+                      </div>
+                      <input
+                        type="text"
+                        name="name"
+                        id="phoneName"
+                        class="form-control input-sm"
+                        placeholder="Phone name"
+                      />
+                    </div>
+                    <p
+                      data-error-required="phoneName"
+                      class="text text-danger"
+                    ></p>
+                  </div>
+
+                  <div class="form-group w-100">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"
+                          ><i class="fa-solid fa-dollar-sign"></i
+                        ></span>
+                      </div>
+                      <input
+                        type="number"
+                        name="price"
+                        id="price"
+                        class="form-control input-sm"
+                        placeholder="price"
+                      />
+                    </div>
+                    <p data-error-required="price" class="text text-danger"></p>
+                    <p
+                      data-error-regexNumber="price"
+                      class="text text-danger"
+                    ></p>
+                  </div>
+
+                  <div class="form-group w-100">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"
+                          ><i class="fa-solid fa-mobile-screen-button"></i
+                        ></span>
+                      </div>
+                      <input
+                        type="number"
+                        name="screen"
+                        id="screen"
+                        class="form-control input-sm"
+                        placeholder="screen"
+                      />
+                    </div>
+                    <p
+                      data-error-required="screen"
+                      class="text text-danger"
+                    ></p>
+                  </div>
+
+                  <div class="form-group w-100">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"
+                          ><i class="fa-solid fa-camera"></i
+                        ></span>
+                      </div>
+                      <input
+                        type="text"
+                        name="backCamera"
+                        id="backCamera"
+                        class="form-control input-sm"
+                        placeholder="Back Camera"
+                      />
+                    </div>
+                    <p
+                      data-error-required="backCamera"
+                      class="text text-danger"
+                    ></p>
+                  </div>
+
+                  <div class="form-group w-100">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"
+                          ><i class="fa-solid fa-camera"></i
+                        ></span>
+                      </div>
+                      <input
+                        type="text"
+                        name="frontCamera"
+                        id="frontCamera"
+                        class="form-control input-sm"
+                        placeholder="Front Camera"
+                      />
+                    </div>
+                    <p
+                      data-error-required="frontCamera"
+                      class="text text-danger"
+                    ></p>
+                  </div>
+
+                  <div class="form-group w-100">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"
+                          ><i class="fa-regular fa-image"></i
+                        ></span>
+                      </div>
+                      <input
+                        type="text"
+                        name="img"
+                        id="imgLink"
+                        class="form-control input-sm"
+                        placeholder="img Link"
+                      />
+                    </div>
+                    <p
+                      data-error-required="imgLink"
+                      class="text text-danger"
+                    ></p>
+                  </div>
+                  <div class="form-group w-100">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"
+                          ><i class="fa-solid fa-message"></i
+                        ></span>
+                      </div>
+                      <input
+                        type="text"
+                        name="description"
+                        id="description"
+                        class="form-control input-sm"
+                        placeholder="Description"
+                      />
+                    </div>
+                    <p
+                      data-error-required="description"
+                      class="text text-danger"
+                    ></p>
+                  </div>
+                  <div class="form-group w-100">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"
+                          ><i class="fa-solid fa-layer-group"></i
+                        ></span>
+                      </div>
+                      <select class="form-control" id="brand">
+                        <option>Select brand</option>
+                        <option>Apple</option>
+                        <option>Samsung</option>
+                      </select>
+                    </div>
+                    <p
+                      data-error-thuongHieu="brand"
+                      class="text text-danger"
+                    ></p>
+                  </div>
+                </form>
+              </div>
+            </form>
+
+            <!-- Modal footer -->
+            <div class="modal-footer" id="modal-footer">
+              <button
+                id="btnReset"
+                type="button"
+                class="btn btn-danger"
+                onclick="reset()"
+              >
+                Reset
+              </button>
+              <button
+                id="btnThemSP"
+                type="button"
+                class="btn btn-success"
+                onclick="themSp()"
+              >
+                Add Phone
+              </button>
+              <button
+                id="btnCapNhapSP"
+                type="button"
+                class="btn btn-success"
+                onclick="capNhapSp()"
+              >
+                Cập Nhập
+              </button>
+              <button
+                id="btnDong"
+                type="button"
+                class="btn btn-danger"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-sub">
+        <div class="container">
+          <div class="text-txt">
+            <div class="row">
+              <div
+                class="col-lg-3 col-sm-6 col-12 pl-lg-5 mt-sm-0 mt-4 footer_brands"
+              >
+                <h6>BRANDS</h6>
+                <ul>
+                  <li class="cat-item cat-item-2">
+                    <a href="#!">iPhone</a>
+                  </li>
+                  <li class="cat-item cat-item-3">
+                    <a href="#!">Sumsung</a>
+                  </li>
+                  <li class="cat-item cat-item-4">
+                    <a href="#!">Xiaomi</a>
+                  </li>
+                  <li class="cat-item cat-item-5">
+                    <a href="#!">Oppo</a>
+                  </li>
+                </ul>
+              </div>
+
+              <div
+                class="col-lg-3 col-sm-6 col-12 pl-lg-5 mt-sm-0 mt-4 footer_useful"
+              >
+                <h6>USEFUL LINKS</h6>
+                <ul>
+                  <li class="cat-item cat-item-2">
+                    <a href="#!">Pricing</a>
+                  </li>
+                  <li class="cat-item cat-item-3">
+                    <a href="#!">Settings</a>
+                  </li>
+                  <li class="cat-item cat-item-4">
+                    <a href="#!">Orders</a>
+                  </li>
+                  <li class="cat-item cat-item-5">
+                    <a href="#!">Help</a>
+                  </li>
+                </ul>
+              </div>
+
+              <div
+                class="col-lg-3 col-sm-6 col-12 mt-lg-0 mt-sm-5 mt-4 footer_contact"
+              >
+                <h6>CONTACT</h6>
+                <div class="contact_content">
+                  <div class="href1">
+                    <span class="fa fa-envelope-open"></span>
+                    <a href="mailto:info@example.com">info@example.com</a>
+                  </div>
+
+                  <div class="href2">
+                    <span class="fa fa-phone"></span>
+                    <a href="tel:+44-000-888-999">+44-000-888-999</a>
+                  </div>
+
+                  <div>
+                    <p class="contact-para">
+                      <span class="fa fa-map-marker"></span>
+                      <a href="Da Nang, Thanh Khe, VN"
+                        >Quang Ngai, Nghia Dong, VN</a
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-lg-3 col-sm-6 col-12 pl-lg-5 mt-lg-0 mt-sm-5 mt-4 footer_about"
+              >
+                <h6>BCA PHONE</h6>
+                <p>
+                  We pride ourselves on our efficiency and hard work, but most
+                  of all our ability to source you the best quality and best
+                  value products and devices in the market.ok
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- copyright -->
+      <div class="copyright-footer">
+        <div class="container">
+          <div class="columns">
+            <p class="CopyRights">
+              © 2023 Studious. All Rights Reserved | WordPress Theme by
+              <a href="">BCA-Phone.</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <!-- roll header -->
+    <script>
+      window.onscroll = function () {
+        myFunction();
+      };
+
+      var header = document.getElementById("fix_header");
+      var sticky = header.offsetTop;
+
+      function myFunction() {
+        if (window.pageYOffset > sticky) {
+          header.classList.add("sticky");
+        } else {
+          header.classList.remove("sticky");
+        }
+      }
+    </script>
+    <!-- sweet -->
+    <script src="
+      https://cdn.jsdelivr.net/npm/sweetalert2@11.7.22/dist/sweetalert2.all.min.js
+      "></script>
+    <!-- axios  -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"
+      integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!-- lodash sắp xếp -->
+    <script src="
+      https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <!-- js -->
+    <script src="../controllers/index.js"></script>
+  </body>
+</html>
