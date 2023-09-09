@@ -36,21 +36,79 @@ header .navbar .navbar-nav .nav-item .nav-link {
 header .navbar .navbar-nav .nav-item .nav-link i {
   margin-right: 4px;
 }
-header .navbar .navbar-nav button {
+header .navbar .navbar-nav .nav-item .modal .modal-dialog .modal-content {
+  position: fixed;
+  top: 82px;
+  z-index: 2000;
+  background-color: #2b7a78;
+  border-radius: 20px;
+  width: 600px;
+  height: 600px;
+  overflow-y: auto;
+}
+header .navbar .navbar-nav .nav-item .modal .modal-dialog .modal-content::-webkit-scrollbar {
+  width: 0px;
+}
+header .navbar .navbar-nav .nav-item .modal .modal-dialog .modal-content .modal-header {
+  padding: 6px 16px;
+}
+header .navbar .navbar-nav .nav-item .modal .modal-dialog .modal-content .modal-header h5 {
+  color: #feffff;
+  font-weight: 700;
+  font-size: 30px;
+}
+header .navbar .navbar-nav .nav-item .modal .modal-dialog .modal-content .modal-header button {
+  padding-top: 24px;
+}
+header .navbar .navbar-nav .nav-item .modal .modal-dialog .modal-content .modal-body .table__content {
+  width: 100%;
+  color: #feffff;
+}
+header .navbar .navbar-nav .nav-item .modal .modal-dialog .modal-content .modal-body .table__content .table__listCart tr {
+  color: #def2f1;
+}
+header .navbar .navbar-nav .nav-item .modal .modal-dialog .modal-content .modal-body .table__content .table__listCart tr .td__sp {
+  width: 300px;
+}
+header .navbar .navbar-nav .nav-item .modal .modal-dialog .modal-content .modal-body .table__content .table__listCart tr .td__sp img {
+  width: 100px;
+  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+}
+header .navbar .navbar-nav .nav-item .modal .modal-dialog .modal-content .modal-body .table__content .table__listCart tr .td__price {
+  text-align: center;
+  width: 100px;
+}
+header .navbar .navbar-nav .nav-item .modal .modal-dialog .modal-content .modal-body .table__content .table__listCart tr .td__quantity {
+  text-align: center;
+  width: 100px;
+}
+header .navbar .navbar-nav .nav-item .modal .modal-dialog .modal-content .modal-body .table__content .table__listCart tr .td__quantity span {
   font-size: 16px;
-  color: #000;
-  font-weight: 500;
+  font-weight: 600;
+  text-align: center;
 }
-header .navbar .navbar-nav button:hover {
-  transition: all 0.6s;
-  color: #e3ee6b;
+header .navbar .navbar-nav .nav-item .modal .modal-dialog .modal-content .modal-body .table__content .table__listCart tr .td__quantity button {
+  padding: 0 2px;
 }
-
+header .navbar .navbar-nav .nav-item .modal .modal-dialog .modal-content .modal-body .table__content .table__listCart tr .td__btn {
+  text-align: center;
+  width: 100px;
+}
+header .navbar .navbar-nav .nav-item .modal .modal-dialog .modal-content .modal-body .total__money {
+  text-align: right;
+  margin: 20px 20px 0 0;
+  color: #feffff;
+  font-size: 20px;
+  font-weight: 700;
+}
 .sticky {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 4000;
 }
 
 .carousel #carousel_Shop .carousel-indicators li {

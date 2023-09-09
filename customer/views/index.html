@@ -31,7 +31,10 @@
   <body>
     <header id="fix_header">
       <nav class="navbar container navbar-expand-lg navbar-light">
-        <a class="navbar-brand d-flex align-items-center" href="../../index.html">
+        <a
+          class="navbar-brand d-flex align-items-center"
+          href="../../index.html"
+        >
           <img
             class="logo_icon"
             src="../../assets/img/logos-png-1.png"
@@ -78,116 +81,100 @@
                 ><i class="fa-solid fa-user-gear"></i>ADmin</a
               >
             </li>
-            <!-- Button trigger modal -->
-            <button
-              type="button"
-              class="btn"
-              data-toggle="modal"
-              data-target="#exampleModalCenter"
-            >
-              <i class="logo_cart fa-solid fa-store"></i>
-              Cart
-            </button>
-
-            <!-- Modal -->
-            <div
-              class="modal fade"
-              id="exampleModalCenter"
-              tabindex="-1"
-              role="dialog"
-              aria-labelledby="exampleModalCenterTitle"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">
-                      Shopping Cart
-                    </h5>
-                    <button
-                      type="button"
-                      class="close"
-                      data-dismiss="modal"
-                      aria-label="Close"
-                    >
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="item-card">
-                      <div class="cart__list-text">
-                        <div class="product-text">
-                          <p>Product</p>
-                        </div>
-                        <div class="quanlity-text">
-                          <p>Quantity</p>
-                          <p>Total</p>
-                        </div>
-                      </div>
-                      <!-- cart item List -->
-                      <div class="cart__list-item" id="body_cart">
-                        <div class="cart__item">
-                          <div class="cart__item-content-left">
-                            <div class="cart__item-product-pic">
-                              <img
-                                src="../asset/img/iphone-14-bg5.jpg"
-                                alt="#"
-                              />
-                            </div>
-                            <div class="cart__item-product-description">
-                              <p class="name">Iphone 14 pro max</p>
-                              <p class="short-description">Color yellow</p>
-                              <div class="price">$300</div>
-                            </div>
-                          </div>
-                          <div class="cart__item-content-right">
-                            <div class="cart__item-button">
-                              <button class="btn-reduce">
-                                <i class="fa-solid fa-arrow-left"></i>
+            <li class="nav-item">
+              <a
+                class="nav-link btn"
+                data-toggle="modal"
+                data-target="#exampleModal"
+                href=""
+                ><i class="logo_cart fa-solid fa-store"></i>Cart</a
+              >
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                id="exampleModal"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Cart</h5>
+                      <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                      >
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <table class="table__content">
+                        <thead>
+                          <tr
+                            onclick="arrange()"
+                            data-title="price"
+                            data-order="asc"
+                            style="cursor: pointer"
+                          >
+                            <th>Sản phẩm</th>
+                            <th class="text-center">Giá</th>
+                            <th class="text-center">Số lượng</th>
+                            <th class="text-center">Thao tác</th>
+                          </tr>
+                        </thead>
+                        <tbody id="tableDanhSachCart" class="table__listCart">
+                          <!-- <tr>
+                            <td class="td__sp">
+                              <img src="../../assets/img/iphone1.jpg" alt="" />
+                              <span class="ml-3">I Phone 16</span>
+                            </td>
+                            <td class="td__price">1000$</td>
+                            <td class="td__quantity">
+                              <button class="btn btn-light">
+                                <i class="fa-solid fa-caret-left"></i>
                               </button>
-                              <span class="quantity">3</span>
-                              <button class="btn-increase">
-                                <i class="fa-solid fa-arrow-right"></i>
+                              <span>1</span>
+                              <button class="btn btn-light">
+                                <i class="fa-solid fa-caret-right"></i>
                               </button>
-                              <button class="delete-cart-item">
-                                <i class="fa-solid fa-xmark"></i>
+                            </td>
+                            <td class="td__btn">
+                              <button
+                                class="btn btn-danger"
+                                onclick="deleteSpCart()"
+                              >
+                                Xóa
                               </button>
-                            </div>
-                            <div class="cart__item-total">
-                              <p>
-                                "$"
-                                <span class="total-price-item">1125</span>
-                              </p>
-                            </div>
-                          </div>
-                        </div>
+                            </td>
+                          </tr> -->
+                        </tbody>
+                      </table>
+                      <div class="total__money">
+                        <p>Tổng tiền: 1000$</p>
                       </div>
                     </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-secondary"
-                      data-dismiss="modal"
-                      onclick="exit()"
-                    >
-                      Continue Shopping
-                    </button>
-                    <button
-                      type="button"
-                      class="btn btn-danger"
-                      onclick="remo_cart()"
-                    >
-                      <i class="fa-solid fa-trash"></i>
-                      Empty Cart
-                    </button>
-                    <button type="button" class="btn btn-success">
-                      Pay Now
-                    </button>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-danger p-2"
+                        data-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                      <button type="button" class="btn btn-dark p-2 ml-3">
+                        Clear
+                      </button>
+                      <button type="button" class="btn btn-dark ml-3 p-2">
+                        Mua Hàng
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </li>
           </ul>
         </div>
       </nav>
@@ -257,7 +244,7 @@
           <option>Samsung</option>
         </select>
       </div>
-      <div class="content_item container">
+      <div class="content_item">
         <div class="row" id="renderDanhSachUser"></div>
       </div>
     </section>
@@ -407,11 +394,7 @@
     <!-- lodash sắp xếp -->
     <script src="
       https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
-    <!-- validation -->
-    <script src="../util/method.js"></script>
-    <!-- controllers -->
-    <script src="../controllers/controllers.js"></script>
     <!-- js -->
-    <script src="../controllers/index.js"></script>
+    <script type="module" src="../controllers/index.js"></script>
   </body>
 </html>

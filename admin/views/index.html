@@ -31,7 +31,10 @@
   <body>
     <header id="fix_header">
       <nav class="navbar container navbar-expand-lg navbar-light">
-        <a class="navbar-brand d-flex align-items-center" href="../../index.html">
+        <a
+          class="navbar-brand d-flex align-items-center"
+          href="../../index.html"
+        >
           <img
             class="logo_icon"
             src="../../assets/img/logos-png-1.png"
@@ -58,6 +61,7 @@
           <form class="form_search form-inline my-2 my-lg-0">
             <input
               id="keyword"
+              oninput="keySearch()"
               class="form-control mr-sm-2"
               type="search"
               placeholder="nhập loại điện thoại cần tìm vào"
@@ -78,116 +82,6 @@
                 ><i class="fa-solid fa-user-gear"></i>ADmin</a
               >
             </li>
-            <!-- Button trigger modal -->
-            <button
-              type="button"
-              class="btn"
-              data-toggle="modal"
-              data-target="#exampleModalCenter"
-            >
-              <i class="logo_cart fa-solid fa-store"></i>
-              Cart
-            </button>
-
-            <!-- Modal -->
-            <div
-              class="modal fade"
-              id="exampleModalCenter"
-              tabindex="-1"
-              role="dialog"
-              aria-labelledby="exampleModalCenterTitle"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">
-                      Shopping Cart
-                    </h5>
-                    <button
-                      type="button"
-                      class="close"
-                      data-dismiss="modal"
-                      aria-label="Close"
-                    >
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="item-card">
-                      <div class="cart__list-text">
-                        <div class="product-text">
-                          <p>Product</p>
-                        </div>
-                        <div class="quanlity-text">
-                          <p>Quantity</p>
-                          <p>Total</p>
-                        </div>
-                      </div>
-                      <!-- cart item List -->
-                      <div class="cart__list-item" id="body_cart">
-                        <div class="cart__item">
-                          <div class="cart__item-content-left">
-                            <div class="cart__item-product-pic">
-                              <img
-                                src="../asset/img/iphone-14-bg5.jpg"
-                                alt="#"
-                              />
-                            </div>
-                            <div class="cart__item-product-description">
-                              <p class="name">Iphone 14 pro max</p>
-                              <p class="short-description">Color yellow</p>
-                              <div class="price">$300</div>
-                            </div>
-                          </div>
-                          <div class="cart__item-content-right">
-                            <div class="cart__item-button">
-                              <button class="btn-reduce">
-                                <i class="fa-solid fa-arrow-left"></i>
-                              </button>
-                              <span class="quantity">3</span>
-                              <button class="btn-increase">
-                                <i class="fa-solid fa-arrow-right"></i>
-                              </button>
-                              <button class="delete-cart-item">
-                                <i class="fa-solid fa-xmark"></i>
-                              </button>
-                            </div>
-                            <div class="cart__item-total">
-                              <p>
-                                "$"
-                                <span class="total-price-item">1125</span>
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-secondary"
-                      data-dismiss="modal"
-                      onclick="exit()"
-                    >
-                      Continue Shopping
-                    </button>
-                    <button
-                      type="button"
-                      class="btn btn-danger"
-                      onclick="remo_cart()"
-                    >
-                      <i class="fa-solid fa-trash"></i>
-                      Empty Cart
-                    </button>
-                    <button type="button" class="btn btn-success">
-                      Pay Now
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
           </ul>
         </div>
       </nav>
@@ -197,9 +91,7 @@
         <div class="card-header myCardHeader mt-4">
           <div class="row">
             <div class="col-8">
-              <h3 class="text-left font-weight-bold">
-                Phone Management
-              </h3>
+              <h3 class="text-left font-weight-bold">Phone Management</h3>
             </div>
             <div class="col-4 text-right">
               <button
@@ -216,7 +108,7 @@
         <table class="table table-bordered table-hover myTable mb-5">
           <thead class="text-dark">
             <tr
-              onclick="sapXepGia()"
+              onclick="arrange()"
               data-title="price"
               data-order="asc"
               style="cursor: pointer"
@@ -445,7 +337,7 @@
                 id="btnThemSP"
                 type="button"
                 class="btn btn-success"
-                onclick="themSp()"
+                onclick="addSp()"
               >
                 Add Phone
               </button>
@@ -453,7 +345,7 @@
                 id="btnCapNhapSP"
                 type="button"
                 class="btn btn-success"
-                onclick="capNhapSp()"
+                onclick="updateSp()"
               >
                 Cập Nhập
               </button>
@@ -618,6 +510,6 @@
     <script src="
       https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
     <!-- js -->
-    <script src="../controllers/index.js"></script>
+    <script type="module" src="../controllers/index.js"></script>
   </body>
 </html>

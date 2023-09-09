@@ -1,4 +1,4 @@
-var validation = {
+export let validation = {
   kiemTraRong: function (value, name) {
     if (value.trim() === "") {
       document.querySelector(`[data-error-required=${name}]`).innerHTML =
@@ -29,7 +29,7 @@ var validation = {
   },
 };
 
-function stringToSlug(title) {
+export let stringToSlug = (title) => {
   //Đổi chữ hoa thành chữ thường
   slug = title.toLowerCase();
   //Đổi ký tự có dấu thành không dấu
@@ -58,4 +58,4 @@ function stringToSlug(title) {
   slug = slug.replace(/\@\-|\-\@|\@/gi, "");
 
   return slug;
-}
+};
