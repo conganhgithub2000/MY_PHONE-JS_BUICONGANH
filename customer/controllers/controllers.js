@@ -11,10 +11,13 @@ export let renderSpUser = (productListUser) => {
                             alt="..."
                           />
                           <div class="card_item_body">
-                            <h4>${name}</h4>
+                            <h4>${convertName(name, 22)}</h4>
                             <p>${price}$</p>
                             <p class="card_brand">${type}</p>
-                            <p class="card_desc"><b>Description: </b>${desc}</p>
+                            <p class="card_desc"><b>Desc: </b>${convertName(
+                              desc,
+                              35
+                            )}</p>
                           </div>
                           <div class="card_overlay">
                             <h2>Specifications</h2>
@@ -43,7 +46,7 @@ export let renderSpCart = (productListUser) => {
       <tr>
         <td class="td__sp">
           <img src=${img} alt="" />
-          <span class="ml-3">${name}</span>
+          <span class="ml-3">${convertName(name, 20)}</span>
         </td>
         <td class="td__price">${price}$</td>
         <td class="td__quantity">
@@ -71,4 +74,14 @@ export let renderSpCart = (productListUser) => {
 
 export let onSuccess = (message) => {
   Swal.fire(message, "", "success");
+};
+
+//giới hạn số lượng chữ xuất hiện
+let convertName = (name, number) => {
+  let maxLength = number;
+  if (name.length > maxLength) {
+    return name.slice(0, maxLength) + "...";
+  } else {
+    return name;
+  }
 };

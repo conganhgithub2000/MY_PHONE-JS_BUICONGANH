@@ -28,16 +28,6 @@ window.addCartUser = (id) => {
     .catch(function (err) {});
 };
 
-//giới hạn số lượng chữ xuất hiện
-let convertName = (name) => {
-  let maxLength = 17;
-  if (name.length > maxLength) {
-    return name.slice(0, maxLength) + "...";
-  } else {
-    return name;
-  }
-};
-
 //Phương thức lưu vào application storage
 let saveStorageArr = () => {
   //Chuyển arr về chuỗi

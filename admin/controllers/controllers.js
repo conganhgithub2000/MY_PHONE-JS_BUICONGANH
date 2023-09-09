@@ -3,12 +3,12 @@ export let renderDSSP = (productList) => {
   let contentHTML = "";
   productList.map(({ id, name, price, img, desc }) => {
     let contentTr = `<tr>
-                              <td>${id}</td>
-                              <td>${name}</td>
-                              <td>${price}</td>
-                              <td><img style ="width:300px; height:100px" src=${img} alt="" /></td>
-                              <td>${desc}</td>
-                              <td>
+                              <td class="td__id">${id}</td>
+                              <td class="td__name">${name}</td>
+                              <td class="td__price">${price}$</td>
+                              <td class="td__img"><img src=${img} alt="" /></td>
+                              <td class="td__desc">${desc}</td>
+                              <td class="td__btn">
                                   <button class="btn btn-danger" onclick=deleteSp(${id})>Xóa</button>
                                   <button class="btn btn-warning" onclick=editSp(${id})>Sửa</button>
                               </td>
