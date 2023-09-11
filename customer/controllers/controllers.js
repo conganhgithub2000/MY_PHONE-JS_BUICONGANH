@@ -51,11 +51,11 @@ export let renderSpCart = (productListUser) => {
         </td>
         <td class="td__price">${sp.price}$</td>
         <td class="td__quantity">
-          <button class="btn btn-light">
+          <button onclick="minus(${index})" class="btn btn-light">
             <i class="fa-solid fa-caret-left"></i>
           </button>
-          <span>1</span>
-          <button class="btn btn-light">
+          <span>${sp.quantity}</span>
+          <button onclick="plus(${index})" class="btn btn-light">
             <i class="fa-solid fa-caret-right"></i>
           </button>
         </td>
@@ -85,4 +85,20 @@ let convertName = (name, number) => {
   } else {
     return name;
   }
+};
+
+export let itemcart = (data) => {
+  let id = data.id;
+  let name = data.name;
+  let price = data.price;
+  let img = data.img;
+  let quantity = 1;
+
+  return {
+    id,
+    name,
+    price,
+    img,
+    quantity,
+  };
 };

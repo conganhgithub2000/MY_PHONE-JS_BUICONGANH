@@ -1,4 +1,9 @@
-import { onSuccess, renderSpCart, renderSpUser } from "./controllers.js";
+import {
+  itemcart,
+  onSuccess,
+  renderSpCart,
+  renderSpUser,
+} from "./controllers.js";
 import phoneServUser from "../services/sevices.js";
 
 //hiển thị sp ra màng hình user
@@ -15,17 +20,33 @@ fetchProductListUser();
 //thêm sp vào giỏ hàng
 let arrCartUser = [];
 window.addCartUser = (id) => {
-  phoneServUser
-    .getDetail(id)
-    .then(function (res) {
-      arrCartUser.push(res.data);
-      // saveStorageArr();
-      renderSpCart(arrCartUser);
-      onSuccess("Thêm sp thành công");
-      console.log("arrCartUser:", arrCartUser);
-      saveStorageArr();
-    })
-    .catch(function (err) {});
+  let check = true;
+  if (arrCartUser.length > 0) {
+    for (let index = 0; index < arrCartUser.length; index++) {
+      let idSp = arrCartUser[index];
+      if (idSp.id == id) {
+        idSp.quantity += 1;
+        renderSpCart(arrCartUser);
+        onSuccess("Thêm sp thành công");
+        saveStorageArr();
+        check = false;
+        break;
+      }
+    }
+  }
+  if (check) {
+    phoneServUser
+      .getDetail(id)
+      .then(function (res) {
+        let itemCart = itemcart(res.data);
+        arrCartUser.push(itemCart);
+        renderSpCart(arrCartUser);
+        onSuccess("Thêm sp thành công");
+        console.log("arrCartUser:", arrCartUser);
+        saveStorageArr();
+      })
+      .catch(function (err) {});
+  }
 };
 //xóa sp ra khỏi giỏ hàng
 window.deleteSpCart = (indexDel) => {
@@ -65,6 +86,24 @@ window.productType = () => {
       }
     })
     .catch(function (err) {});
+};
+
+window.plus = (index) => {
+  arrCartUser[index].quantity += 1;
+  renderSpCart(arrCartUser);
+  saveStorageArr();
+};
+
+window.minus = (index) => {
+  if (arrCartUser[index].quantity >= 2) {
+    arrCartUser[index].quantity -= 1;
+    renderSpCart(arrCartUser);
+    saveStorageArr();
+  } else {
+    arrCartUser.splice(index, 1);
+    renderSpCart(arrCartUser);
+    saveStorageArr();
+  }
 };
 
 //Phương thức lưu vào application storage
