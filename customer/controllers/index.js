@@ -5,6 +5,7 @@ import {
   renderSpUser,
 } from "./controllers.js";
 import phoneServUser from "../services/sevices.js";
+import { stringToSlug } from "../util/method.js";
 
 //hiển thị sp ra màng hình user
 let fetchProductListUser = () => {

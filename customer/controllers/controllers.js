@@ -41,8 +41,11 @@ export let renderSpUser = (productListUser) => {
 
 export let renderSpCart = (productListUser) => {
   let contentHTMLtr = "";
+  let totalMoney = 0;
   for (let index = 0; index < productListUser.length; index++) {
     let sp = productListUser[index];
+    let total = sp.price * sp.quantity;
+    totalMoney += total;
     let contentTr = `
       <tr>
         <td class="td__sp">
@@ -71,6 +74,9 @@ export let renderSpCart = (productListUser) => {
     contentHTMLtr += contentTr;
   }
   document.getElementById("tableDanhSachCart").innerHTML = contentHTMLtr;
+  document.querySelector(
+    ".total__money"
+  ).innerHTML = `Tổng tiền: ${totalMoney}$`;
 };
 
 export let onSuccess = (message) => {

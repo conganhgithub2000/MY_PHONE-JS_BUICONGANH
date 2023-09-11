@@ -43,14 +43,18 @@ window.addSp = () => {
     validation.kiemTraRong(sp.desc, "description");
 
   // kiểm tra tất cả phải là số
-  var valid = validation.kiemTraNumber(sp.price, "price");
+  valid = valid & validation.kiemTraNumber(sp.price, "price");
 
   // kiểm tra thương hiệu
-  var valid = validation.kiemTraThuongHieu(sp.type, "brand");
+  valid = valid & validation.kiemTraThuongHieu(sp.type, "brand");
 
   if (!valid) {
     return;
   }
+
+  document.getElementById("MaSP").disabled = false;
+  document.querySelector("#btnCapNhapSP").disabled = false;
+  document.querySelector("#btnThemSP").disabled = false;
 
   phoneServ
     .addSp(sp)
@@ -61,6 +65,14 @@ window.addSp = () => {
       onSuccess("Thêm sp thành công");
     })
     .catch(function (err) {});
+};
+//vô hiện hóa btn
+document.querySelector("#btnThem").onclick = function () {
+  document.querySelector("#btnCapNhapSP").disabled = true;
+};
+document.querySelector("#btnDong").onclick = function () {
+  document.querySelector("#btnCapNhapSP").disabled = false;
+  document.querySelector("#btnThemSP").disabled = false;
 };
 
 window.editSp = (id) => {
@@ -73,17 +85,41 @@ window.editSp = (id) => {
     })
     .catch(function (err) {});
   document.getElementById("MaSP").disabled = true;
+  document.querySelector("#btnThemSP").disabled = true;
+  document.querySelector("#btnCapNhapSP").disabled = false;
 };
 
 window.updateSp = () => {
   let sp = layThongTinTuForm();
+  //kiểm tra không được bỏ trống
+  var valid =
+    validation.kiemTraRong(sp.name, "phoneName") &
+    validation.kiemTraRong(sp.price, "price") &
+    validation.kiemTraRong(sp.screen, "screen") &
+    validation.kiemTraRong(sp.backCamera, "backCamera") &
+    validation.kiemTraRong(sp.frontCamera, "frontCamera") &
+    validation.kiemTraRong(sp.img, "imgLink") &
+    validation.kiemTraRong(sp.desc, "description");
+
+  // kiểm tra tất cả phải là số
+  valid = valid & validation.kiemTraNumber(sp.price, "price");
+
+  // kiểm tra thương hiệu
+  valid = valid & validation.kiemTraThuongHieu(sp.type, "brand");
+
+  if (!valid) {
+    return;
+  }
+
+  document.querySelector("#btnThemSP").disabled = false;
+
   phoneServ
     .updateSp(sp)
     .then(function (res) {
       //lấy lại danh sách sản phẩm sau khi cập nhập thành công
       fetchProductList();
-      onSuccess("Cập nhập thành công");
       $("#myModal").modal("hide");
+      onSuccess("Cập nhập thành công");
     })
     .catch(function (err) {});
 };
@@ -126,7 +162,6 @@ document.querySelector("#keyword").oninput = function (event) {
         // namePhone = stringToSlug(namePhone); //đổi từ chữ HOA --> thường
         if (namePhone.search(keySearch) !== -1) {
           arrSearch.push(sp);
-          console.log(arrSearch);
         }
       }
       renderDSSP(arrSearch);
