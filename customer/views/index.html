@@ -31,10 +31,7 @@
   <body>
     <header id="fix_header">
       <nav class="navbar container navbar-expand-lg navbar-light">
-        <a
-          class="navbar-brand d-flex align-items-center"
-          href="#"
-        >
+        <a class="navbar-brand d-flex align-items-center" href="#">
           <img
             class="logo_icon"
             src="../../assets/img/logos-png-1.png"
@@ -164,10 +161,18 @@
                       >
                         Close
                       </button>
-                      <button type="button" class="btn btn-dark p-2 ml-3">
+                      <button
+                        onclick="btnClearCart()"
+                        type="button"
+                        class="btn btn-dark p-2 ml-3"
+                      >
                         Clear
                       </button>
-                      <button type="button" class="btn btn-dark ml-3 p-2">
+                      <button
+                        onclick="btnBuyProduct()"
+                        type="button"
+                        class="btn btn-dark ml-3 p-2"
+                      >
                         Mua Hàng
                       </button>
                     </div>
@@ -238,10 +243,15 @@
         <h2>SẢN PHẨM MỚI</h2>
       </div>
       <div class="form-group">
-        <select class="form-control" name="" id="dropdown_sp">
-          <option>All Brands</option>
-          <option>Iphone</option>
-          <option>Samsung</option>
+        <select
+          class="form-control"
+          onchange="productType()"
+          name=""
+          id="dropdown_sp"
+        >
+          <option value="All">All Brands</option>
+          <option value="Apple">Iphone</option>
+          <option value="Samsung">Samsung</option>
         </select>
       </div>
       <div class="content_item">

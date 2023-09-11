@@ -206,9 +206,6 @@ header .navbar .navbar-nav .nav-item .modal .modal-dialog .modal-content .modal-
 .content .content_item .row .bg_card .card_item .card_item_body p {
   margin: 10px;
 }
-.content .content_item .row .bg_card .card_item .card_item_body .card_desc {
-  height: 40px;
-}
 .content .content_item .row .bg_card .card_item .card_overlay {
   opacity: 0;
   position: absolute;

@@ -41,14 +41,15 @@ export let renderSpUser = (productListUser) => {
 
 export let renderSpCart = (productListUser) => {
   let contentHTMLtr = "";
-  productListUser.map(({ id, name, price, img }) => {
+  for (let index = 0; index < productListUser.length; index++) {
+    let sp = productListUser[index];
     let contentTr = `
       <tr>
         <td class="td__sp">
-          <img src=${img} alt="" />
-          <span class="ml-3">${convertName(name, 20)}</span>
+          <img src=${sp.img} alt="" />
+          <span class="ml-3">${convertName(sp.name, 20)}</span>
         </td>
-        <td class="td__price">${price}$</td>
+        <td class="td__price">${sp.price}$</td>
         <td class="td__quantity">
           <button class="btn btn-light">
             <i class="fa-solid fa-caret-left"></i>
@@ -61,14 +62,14 @@ export let renderSpCart = (productListUser) => {
         <td class="td__btn">
           <button
             class="btn btn-danger"
-            onclick="deleteSpCart(${id})"
+            onclick="deleteSpCart(${index})"
           >
             Xóa
           </button>
         </td>
       </tr>`;
     contentHTMLtr += contentTr;
-  });
+  }
   document.getElementById("tableDanhSachCart").innerHTML = contentHTMLtr;
 };
 

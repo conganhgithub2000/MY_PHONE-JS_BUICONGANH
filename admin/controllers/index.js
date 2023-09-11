@@ -110,24 +110,26 @@ window.arrange = () => {
     .catch(function (err) {});
 };
 
-// document.querySelector("#keyword").oninput = function (event) {
-//   let keySearch = event.target.value;
-//   let arrSearch = [];
+document.querySelector("#keyword").oninput = function (event) {
+  let keySearch = event.target.value;
+  phoneServ
+    .getList()
+    .then(function (res) {
+      let arrSearch = [];
+      for (let index = 0; index < res.data.length; index++) {
+        let sp = res.data[index];
+        let namePhone = res.data[index].name;
 
-//   phoneServ
-//     .getList()
-//     .then(function (res) {
-//       res.data.map((name, index) => {
-//         let namePhone = name;
-
-//         keySearch = stringToSlug(keySearch); //đổi từ chữ HOA --> thường
-//         namePhone = stringToSlug(namePhone); //đổi từ chữ HOA --> thường
-
-//         if (namePhone.search(keySearch) !== -1) {
-//           arrSearch.push(res.data[index]);
-//         }
-//       });
-//       renderDSSP(arrSearch);
-//     })
-//     .catch(function (err) {});
-// };
+        keySearch = keySearch.toLowerCase(); //đổi từ chữ HOA --> thường
+        namePhone = namePhone.toLowerCase(); //đổi từ chữ HOA --> thường
+        // keySearch = stringToSlug(keySearch); //đổi từ chữ HOA --> thường
+        // namePhone = stringToSlug(namePhone); //đổi từ chữ HOA --> thường
+        if (namePhone.search(keySearch) !== -1) {
+          arrSearch.push(sp);
+          console.log(arrSearch);
+        }
+      }
+      renderDSSP(arrSearch);
+    })
+    .catch(function (err) {});
+};

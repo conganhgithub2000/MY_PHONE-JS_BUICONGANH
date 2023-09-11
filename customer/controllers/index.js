@@ -1,29 +1,68 @@
 import { onSuccess, renderSpCart, renderSpUser } from "./controllers.js";
 import phoneServUser from "../services/sevices.js";
 
+//hiển thị sp ra màng hình user
 let fetchProductListUser = () => {
   phoneServUser
     .getList()
     .then(function (res) {
       renderSpUser(res.data);
-      console.log("resok:", res.data);
     })
     .catch(function (err) {});
 };
 
 fetchProductListUser();
-
+//thêm sp vào giỏ hàng
 let arrCartUser = [];
-console.log("🚀 ~ file: index.js:17 ~ arrCartUser:", arrCartUser);
 window.addCartUser = (id) => {
   phoneServUser
     .getDetail(id)
     .then(function (res) {
       arrCartUser.push(res.data);
-
-      saveStorageArr();
+      // saveStorageArr();
       renderSpCart(arrCartUser);
       onSuccess("Thêm sp thành công");
+      console.log("arrCartUser:", arrCartUser);
+      saveStorageArr();
+    })
+    .catch(function (err) {});
+};
+//xóa sp ra khỏi giỏ hàng
+window.deleteSpCart = (indexDel) => {
+  arrCartUser.splice(indexDel, 1);
+  renderSpCart(arrCartUser);
+  saveStorageArr();
+};
+//clear hết giỏ hàng
+window.btnClearCart = () => {
+  arrCartUser = [];
+  renderSpCart(arrCartUser);
+  saveStorageArr();
+};
+//khi người dùng click mua xong sẽ clear lại giỏ hàng
+window.btnBuyProduct = () => {
+  arrCartUser = [];
+  renderSpCart(arrCartUser);
+  saveStorageArr();
+};
+//khi user chọn loại sp thì sẽ tự in ra màng hình loại sp đó
+window.productType = () => {
+  let loaiTimKiem = document.getElementById("dropdown_sp").value;
+  phoneServUser
+    .getList()
+    .then(function (res) {
+      if (loaiTimKiem == "All") {
+        fetchProductListUser();
+      } else {
+        let arrDropdown = [];
+        for (let index = 0; index < res.data.length; index++) {
+          let sp = res.data[index];
+          if (loaiTimKiem == sp.type) {
+            arrDropdown.push(sp);
+          }
+        }
+        renderSpUser(arrDropdown);
+      }
     })
     .catch(function (err) {});
 };
@@ -43,12 +82,35 @@ let getStorageJSON = (name) => {
     let str = localStorage.getItem(name);
     let jsonValue = JSON.parse(str);
 
-    console.log("jsonValue", jsonValue);
     return jsonValue;
   }
   return null;
 };
 
+document.querySelector("#keyword").oninput = function (event) {
+  let keySearch = event.target.value;
+  phoneServUser
+    .getList()
+    .then(function (res) {
+      let arrSearch = [];
+      for (let index = 0; index < res.data.length; index++) {
+        let sp = res.data[index];
+        let namePhone = res.data[index].name;
+
+        keySearch = keySearch.toLowerCase(); //đổi từ chữ HOA --> thường
+        namePhone = namePhone.toLowerCase(); //đổi từ chữ HOA --> thường
+        // keySearch = stringToSlug(keySearch); //đổi từ chữ HOA --> thường
+        // namePhone = stringToSlug(namePhone); //đổi từ chữ HOA --> thường
+        if (namePhone.search(keySearch) !== -1) {
+          arrSearch.push(sp);
+        }
+      }
+      renderSpUser(arrSearch);
+    })
+    .catch(function (err) {});
+};
+
 window.onload = () => {
-  getStorageJSON(arrCartUser);
+  arrCartUser = getStorageJSON("arrCartUser");
+  renderSpCart(arrCartUser);
 };
