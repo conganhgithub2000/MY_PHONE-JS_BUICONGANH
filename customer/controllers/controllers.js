@@ -3,7 +3,7 @@ export let renderSpUser = (productListUser) => {
   productListUser.map(
     ({ id, name, price, img, type, desc, screen, backCamera, frontCamera }) => {
       let contentDiv = `
-                      <div class="col-sm-6 col-lg-4 bg_card">
+                      <div class="col-6 col-md-4 col-lg-3 bg_card">
                         <div class="card card_item">
                           <img
                             src=${img}
@@ -12,15 +12,13 @@ export let renderSpUser = (productListUser) => {
                           />
                           <div class="card_item_body">
                             <h4>${convertName(name, 22)}</h4>
-                            <p>${price}$</p>
-                            <p class="card_brand">${type}</p>
+                            <p class="card_price">${price.toLocaleString()} VNĐ</p>
                             <p class="card_desc"><b>Desc: </b>${convertName(
                               desc,
                               35
                             )}</p>
                           </div>
                           <div class="card_overlay">
-                            <h2>Specifications</h2>
                             <div class="card_text">
                               <p><b>Screen:</b> ${screen}</p>
                               <p><b>Back camera:</b> ${backCamera}</p>
@@ -29,7 +27,7 @@ export let renderSpUser = (productListUser) => {
                             <div class="card_link">
                               <a href="">click here for more details</a>
                             </div>
-                            <button onclick="addCartUser(${id})" class="btn btn-warning">Thêm vào giỏ hàng</button>
+                            <button onclick="addCartUser(${id})" class="btn btn-success">Thêm vào giỏ hàng</button>
                           </div>
                         </div>
                       </div>`;
@@ -52,7 +50,7 @@ export let renderSpCart = (productListUser) => {
           <img src=${sp.img} alt="" />
           <span class="ml-3">${convertName(sp.name, 20)}</span>
         </td>
-        <td class="td__price">${sp.price}$</td>
+        <td class="td__price">${sp.price.toLocaleString()} VNĐ</td>
         <td class="td__quantity">
           <button onclick="minus(${index})" class="btn btn-light">
             <i class="fa-solid fa-caret-left"></i>
@@ -76,7 +74,7 @@ export let renderSpCart = (productListUser) => {
   document.getElementById("tableDanhSachCart").innerHTML = contentHTMLtr;
   document.querySelector(
     ".total__money"
-  ).innerHTML = `Tổng tiền: ${totalMoney}$`;
+  ).innerHTML = `Tổng tiền: ${totalMoney.toLocaleString()} VNĐ`;
 };
 
 export let onSuccess = (message) => {
