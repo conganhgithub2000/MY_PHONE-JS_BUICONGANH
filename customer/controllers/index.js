@@ -22,6 +22,7 @@ let fetchProductListUser = () => {
     .getList()
     .then(function (res) {
       renderSpUser(res.data, start, end);
+      let number = res.data.length;
     })
     .catch(function (err) {});
 };
@@ -241,7 +242,7 @@ document.querySelector("#keyword").oninput = function (event) {
           arrSearch.push(sp);
         }
       }
-      renderSpUser(arrSearch);
+      renderSpUser(arrSearch, start, end);
     })
     .catch(function (err) {});
 };
@@ -255,5 +256,4 @@ window.onload = () => {
 
 //chưa fix title, giá tiền của giỏ hành
 //chưa thêm phần sp tương tự
-//fix lại lỗi search
 //cho lấy được totalPage để nó tự động render thêm nếu sp nhiều lên (đang cho cố định)

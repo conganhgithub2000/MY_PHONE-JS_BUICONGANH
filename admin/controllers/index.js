@@ -243,7 +243,7 @@ document.querySelector("#keyword").oninput = function (event) {
           arrSearch.push(sp);
         }
       }
-      renderDSSP(arrSearch);
+      renderDSSP(arrSearch, start, end);
     })
     .catch(function (err) {});
 };
