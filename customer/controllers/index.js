@@ -247,10 +247,13 @@ document.querySelector("#keyword").oninput = function (event) {
 };
 //tự động chạy khi load trang
 window.onload = () => {
-  arrCartUser = getStorageJSON("arrCartUser");
-  renderSpCart(arrCartUser);
+  if (getStorageJSON("arrCartUser")) {
+    arrCartUser = getStorageJSON("arrCartUser");
+    renderSpCart(arrCartUser);
+  }
 };
 
 //chưa fix title, giá tiền của giỏ hành
 //chưa thêm phần sp tương tự
+//fix lại lỗi search
 //cho lấy được totalPage để nó tự động render thêm nếu sp nhiều lên (đang cho cố định)
