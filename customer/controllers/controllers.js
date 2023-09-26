@@ -58,22 +58,52 @@ export let renderListPage = (totalPage) => {
 export let renderSpCart = (productListUser) => {
   let contentHTMLtr = "";
   let totalMoney = 0;
-  for (let index = 0; index < productListUser.length; index++) {
-    let sp = productListUser[index];
-    let total = sp.price * sp.quantity;
+  // for (let index = 0; index < productListUser.length; index++) {
+  //   let sp = productListUser[index];
+  //   let total = sp.price * sp.quantity;
+  //   totalMoney += total;
+  //   let contentTr = `
+  //     <tr>
+  //       <td class="td__sp">
+  //         <img src=${sp.img} alt="" />
+  //         <span class="ml-3">${convertName(sp.name, 20)}</span>
+  //       </td>
+  //       <td class="td__price">${sp.price.toLocaleString()} VNĐ</td>
+  //       <td class="td__quantity">
+  //         <button onclick="minus(${index})" class="btn btn-light">
+  //           <i class="fa-solid fa-caret-left"></i>
+  //         </button>
+  //         <span>${sp.quantity}</span>
+  //         <button onclick="plus(${index})" class="btn btn-light">
+  //           <i class="fa-solid fa-caret-right"></i>
+  //         </button>
+  //       </td>
+  //       <td class="td__btn">
+  //         <button
+  //           class="btn btn-danger"
+  //           onclick="deleteSpCart(${index})"
+  //         >
+  //           Xóa
+  //         </button>
+  //       </td>
+  //     </tr>`;
+  //   contentHTMLtr += contentTr;
+  // }
+  productListUser.map(({ name, img, quantity, price }, index) => {
+    let total = price * quantity;
     totalMoney += total;
     let contentTr = `
       <tr>
         <td class="td__sp">
-          <img src=${sp.img} alt="" />
-          <span class="ml-3">${convertName(sp.name, 20)}</span>
+          <img src=${img} alt="" />
+          <span class="ml-3">${convertName(name, 20)}</span>
         </td>
-        <td class="td__price">${sp.price.toLocaleString()} VNĐ</td>
+        <td class="td__price">${price.toLocaleString()} VNĐ</td>
         <td class="td__quantity">
           <button onclick="minus(${index})" class="btn btn-light">
             <i class="fa-solid fa-caret-left"></i>
           </button>
-          <span>${sp.quantity}</span>
+          <span>${quantity}</span>
           <button onclick="plus(${index})" class="btn btn-light">
             <i class="fa-solid fa-caret-right"></i>
           </button>
@@ -88,7 +118,7 @@ export let renderSpCart = (productListUser) => {
         </td>
       </tr>`;
     contentHTMLtr += contentTr;
-  }
+  });
   document.getElementById("tableDanhSachCart").innerHTML = contentHTMLtr;
   document.querySelector(
     ".total__money"
