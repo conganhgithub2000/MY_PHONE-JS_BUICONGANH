@@ -225,19 +225,14 @@ let getStorageJSON = (name) => {
 };
 //tìm kiếm theo tên sp
 document.querySelector("#keyword").oninput = function (event) {
-  let keySearch = event.target.value;
+  let keySearch = event.target.value.toLowerCase();
   phoneServUser
     .getList()
     .then(function (res) {
       let arrSearch = [];
       for (let index = 0; index < res.data.length; index++) {
         let sp = res.data[index];
-        let namePhone = res.data[index].name;
-
-        keySearch = keySearch.toLowerCase(); //đổi từ chữ HOA --> thường
-        namePhone = namePhone.toLowerCase(); //đổi từ chữ HOA --> thường
-        // keySearch = stringToSlug(keySearch); //đổi từ chữ HOA --> thường
-        // namePhone = stringToSlug(namePhone); //đổi từ chữ HOA --> thường
+        let namePhone = res.data[index].name.toLowerCase();
         if (namePhone.search(keySearch) !== -1) {
           arrSearch.push(sp);
         }
