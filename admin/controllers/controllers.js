@@ -1,8 +1,9 @@
 // render danh sách Admin
-export let renderDSSP = (productList) => {
+export let renderDSSP = (productList, start, end) => {
   let contentHTML = "";
-  productList.map(({ id, name, price, img, desc }) => {
-    let contentTr = `<tr>
+  productList.map(({ id, name, price, img, desc }, index) => {
+    if (index >= start && index < end) {
+      let contentTr = `<tr>
                               <td class="td__id">${id}</td>
                               <td class="td__name">${name}</td>
                               <td class="td__price">${price}$</td>
@@ -13,10 +14,24 @@ export let renderDSSP = (productList) => {
                                   <button class="btn btn-warning" onclick=editSp(${id})>Sửa</button>
                               </td>
                           </tr>`;
-    contentHTML += contentTr;
+      contentHTML += contentTr;
+    }
   });
   //dom
   document.getElementById("tableDanhSach").innerHTML = contentHTML;
+};
+
+export let renderListPage = (totalPage) => {
+  let divPage = `<button class="number__page--item active">1</button>`;
+  for (let index = 1; index < totalPage; index++) {
+    let contentDiv = `
+    <button class="number__page--item">
+    ${index + 1}
+    </button>
+    `;
+    divPage += contentDiv;
+  }
+  document.getElementById("number__page").innerHTML = divPage;
 };
 
 export let layThongTinTuForm = () => {

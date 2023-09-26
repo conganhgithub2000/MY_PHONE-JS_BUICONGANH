@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Shop - ASy</title>
+    <title>Shop - BCA</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -26,7 +26,7 @@
     />
 
     <!-- css -->
-    <link rel="stylesheet" href="../../css/index.css" />
+    <link rel="stylesheet" href="/css/index.css" />
   </head>
   <body>
     <header id="fix_header">
@@ -70,12 +70,12 @@
           </form>
           <ul class="navbar-nav d-flex align-items-center">
             <li class="nav-item active">
-              <a class="nav-link" href="../../index.html"
+              <a class="nav-link" href="#"
                 ><i class="fa-solid fa-house"></i>Home</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../../customer/views/index.html"
+              <a class="nav-link" href="/index.html"
                 ><i class="fa-solid fa-store"></i> Store</a
               >
             </li>
@@ -84,7 +84,7 @@
       </nav>
     </header>
     <section class="content">
-      <div class="form_cart container">
+      <div class="form_cart container_my">
         <div class="card-header myCardHeader mt-4">
           <div class="row">
             <div class="col-8">
@@ -120,6 +120,15 @@
           </thead>
           <tbody id="tableDanhSach"></tbody>
         </table>
+      </div>
+      <div class="content__paging">
+        <div class="btn__prev" onclick="btnPrev()">
+          <i class="fa-solid fa-angle-left"></i>
+        </div>
+        <div class="number__page" id="number__page"></div>
+        <div class="btn__next" onclick="btnNext()">
+          <i class="fa-solid fa-angle-right"></i>
+        </div>
       </div>
       <!-- The Modal -->
       <div class="modal fade" id="myModal">
@@ -365,9 +374,7 @@
         <div class="container">
           <div class="text-txt">
             <div class="row">
-              <div
-                class="col-lg-3 col-sm-6 col-12 pl-lg-5 mt-sm-0 mt-4 footer_brands"
-              >
+              <div class="col-lg-3 col-sm-6 col-12 mt-sm-0 mt-4 footer_brands">
                 <h6>BRANDS</h6>
                 <ul>
                   <li class="cat-item cat-item-2">
@@ -385,9 +392,7 @@
                 </ul>
               </div>
 
-              <div
-                class="col-lg-3 col-sm-6 col-12 pl-lg-5 mt-sm-0 mt-4 footer_useful"
-              >
+              <div class="col-lg-3 col-sm-6 col-12 mt-sm-0 mt-4 footer_useful">
                 <h6>USEFUL LINKS</h6>
                 <ul>
                   <li class="cat-item cat-item-2">
@@ -432,7 +437,7 @@
               </div>
 
               <div
-                class="col-lg-3 col-sm-6 col-12 pl-lg-5 mt-lg-0 mt-sm-5 mt-4 footer_about"
+                class="col-lg-3 col-sm-6 col-12 mt-lg-0 mt-sm-5 mt-4 footer_about"
               >
                 <h6>BCA PHONE</h6>
                 <p>

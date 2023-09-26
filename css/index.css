@@ -1,3 +1,23 @@
+body .container_my {
+  width: 75%;
+  margin: 0 auto;
+}
+@media screen and (max-width: 1200px) {
+  body .container_my {
+    width: 85%;
+  }
+}
+@media screen and (max-width: 992px) {
+  body .container_my {
+    width: 95%;
+  }
+}
+
+body .disabled_my {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 header {
   background-color: #3aafa9;
 }
@@ -253,17 +273,14 @@ header .navbar .navbar-nav .nav-item .modal .modal-dialog .modal-content .modal-
 }
 .content .form_cart .myTable #tableDanhSach .td__id {
   text-align: center;
-  line-height: 100px;
   width: 22px;
 }
 .content .form_cart .myTable #tableDanhSach .td__name {
   text-align: center;
-  line-height: 100px;
   width: 300px;
 }
 .content .form_cart .myTable #tableDanhSach .td__price {
   text-align: center;
-  line-height: 100px;
   width: 130px;
 }
 .content .form_cart .myTable #tableDanhSach .td__img {
@@ -278,8 +295,10 @@ header .navbar .navbar-nav .nav-item .modal .modal-dialog .modal-content .modal-
 }
 .content .form_cart .myTable #tableDanhSach .td__btn {
   text-align: center;
-  line-height: 100px;
   width: 134px;
+}
+.content .form_cart .myTable #tableDanhSach .td__btn button {
+  margin-top: 20px;
 }
 .content .content_item .row .bg_card .card_item {
   min-height: 350px;
@@ -326,10 +345,15 @@ header .navbar .navbar-nav .nav-item .modal .modal-dialog .modal-content .modal-
 .content .content_item .row .bg_card .card_item .card_overlay .card_link {
   margin: 50px 0 64px;
 }
-.content .content_item .row .bg_card .card_item .card_overlay .card_link a {
+.content .content_item .row .bg_card .card_item .card_overlay .card_link .btn__detail {
   color: #feffff;
   font-size: 17px;
+  font-weight: 700;
   text-decoration: underline;
+  cursor: pointer;
+}
+.content .content_item .row .bg_card .card_item .card_overlay .card_link .btn__detail:hover {
+  color: #f3366f;
 }
 .content .content_item .row .bg_card .card_item .card_overlay button {
   position: absolute;
@@ -349,6 +373,97 @@ header .navbar .navbar-nav .nav-item .modal .modal-dialog .modal-content .modal-
 .content .content_item .row .bg_card .card_item .card_overlay:hover {
   opacity: 1;
   transition: all 1s;
+}
+.content .content__sp h4 {
+  font-weight: 700;
+}
+.content .content__sp .content__sp--left img {
+  height: 520px;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  border: 2px solid #3aafa9;
+  border-radius: 20px;
+}
+.content .content__sp .content__sp--right {
+  background-color: rgba(204, 204, 204, 0.4);
+  border-radius: 20px;
+  position: relative;
+}
+@media screen and (max-width: 992px) {
+  .content .content__sp .content__sp--right {
+    min-height: 500px;
+    background: none;
+  }
+}
+.content .content__sp .content__sp--right h4 {
+  text-align: center;
+  margin: 30px 0;
+}
+.content .content__sp .content__sp--right .specifications {
+  margin: 0 10px;
+}
+.content .content__sp .content__sp--right .specifications .specifications__item {
+  display: flex;
+  justify-content: flex-start;
+}
+.content .content__sp .content__sp--right .specifications .specifications__item p {
+  width: 50%;
+}
+.content .content__sp .content__sp--right .specifications .specifications__item span {
+  width: 50%;
+}
+.content .content__sp .content__sp--right .price__sp h5 {
+  text-align: right;
+  font-weight: 700;
+  color: #f3366f;
+  font-size: 25px;
+  margin: 20px 10px 20px 0;
+}
+.content .content__sp .content__sp--right .specifications__btn {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  left: 24px;
+  bottom: 20px;
+  right: 24px;
+}
+.content .content__sp .content__sp--right .specifications__btn button {
+  background-color: #3aafa9;
+  padding: 10px 20px;
+  color: #feffff;
+  border-radius: 15px;
+  font-size: 26px;
+  font-weight: 700;
+}
+.content .content__sp .content__sp--right .specifications__btn .btn__buy {
+  width: 60%;
+}
+.content .content__paging {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+.content .content__paging .btn__prev,
+.content .content__paging .number__page .number__page--item,
+.content .content__paging .btn__next {
+  border: 2px solid #17252a;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 0 6px;
+}
+.content .content__paging .btn__prev:hover,
+.content .content__paging .number__page .number__page--item:hover,
+.content .content__paging .btn__next:hover {
+  background-color: #3aafa9;
+}
+.content .content__paging .active {
+  background-color: #3aafa9;
+  color: #feffff;
+}
+.content .content__paging .number__page {
+  display: flex;
 }
 
 footer .footer-sub {

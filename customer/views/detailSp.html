@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Shop - ASy</title>
+    <title>Shop - BCA</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -25,23 +25,8 @@
       crossorigin="anonymous"
     />
 
-    <!-- slick -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"
-      integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"
-      integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
     <!-- css -->
-    <link rel="stylesheet" href="../../css/index.css" />
+    <link rel="stylesheet" href="/css/index.css" />
   </head>
   <body>
     <header id="fix_header">
@@ -52,7 +37,7 @@
             src="../../assets/img/logos-png-1.png"
             alt=""
           />
-          <p class="mb-0 ml-2">Phone</p>
+          <p class="mb-0 ml-2">BCA</p>
         </a>
         <button
           class="navbar-toggler"
@@ -73,6 +58,7 @@
           <form class="form_search form-inline my-2 my-lg-0">
             <input
               id="keyword"
+              oninput="keySearch()"
               class="form-control mr-sm-2"
               type="search"
               placeholder="nhập loại điện thoại cần tìm vào"
@@ -83,13 +69,13 @@
             </button>
           </form>
           <ul class="navbar-nav d-flex align-items-center">
-            <li class="nav-item active">
-              <a class="nav-link" href="../../index.html"
-                ><i class="fa-solid fa-house"></i>Home</a
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html"
+                ><i class="fa-solid fa-store"></i> Store</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../../admin/views/index.html"
+              <a class="nav-link" href="/admin/views/index.html"
                 ><i class="fa-solid fa-user-gear"></i>ADmin</a
               >
             </li>
@@ -139,29 +125,29 @@
                         </thead>
                         <tbody id="tableDanhSachCart" class="table__listCart">
                           <!-- <tr>
-                            <td class="td__sp">
-                              <img src="../../assets/img/iphone1.jpg" alt="" />
-                              <span class="ml-3">I Phone 16</span>
-                            </td>
-                            <td class="td__price">1000$</td>
-                            <td class="td__quantity">
-                              <button class="btn btn-light">
-                                <i class="fa-solid fa-caret-left"></i>
-                              </button>
-                              <span>1</span>
-                              <button class="btn btn-light">
-                                <i class="fa-solid fa-caret-right"></i>
-                              </button>
-                            </td>
-                            <td class="td__btn">
-                              <button
-                                class="btn btn-danger"
-                                onclick="deleteSpCart()"
-                              >
-                                Xóa
-                              </button>
-                            </td>
-                          </tr> -->
+                              <td class="td__sp">
+                                <img src="../../assets/img/iphone1.jpg" alt="" />
+                                <span class="ml-3">I Phone 16</span>
+                              </td>
+                              <td class="td__price">1000$</td>
+                              <td class="td__quantity">
+                                <button class="btn btn-light">
+                                  <i class="fa-solid fa-caret-left"></i>
+                                </button>
+                                <span>1</span>
+                                <button class="btn btn-light">
+                                  <i class="fa-solid fa-caret-right"></i>
+                                </button>
+                              </td>
+                              <td class="td__btn">
+                                <button
+                                  class="btn btn-danger"
+                                  onclick="deleteSpCart()"
+                                >
+                                  Xóa
+                                </button>
+                              </td>
+                            </tr> -->
                         </tbody>
                       </table>
                       <div class="total__money"></div>
@@ -197,43 +183,55 @@
         </div>
       </nav>
     </header>
-    <section class="carousel">
-      <div class="carousel__bg">
-        <img src="../../assets/img/carousel_bg.webp" alt="" />
-      </div>
-      <div class="carousel__content container">
-        <div class="carousel__item">
-          <img src="../../assets/img/carousel1.webp" alt="" />
-        </div>
-        <div class="carousel__item">
-          <img src="../../assets/img/carousel2.webp" alt="" />
-        </div>
-        <div class="carousel__item">
-          <img src="../../assets/img/carousel3.webp" alt="" />
-        </div>
-        <div class="carousel__item">
-          <img src="../../assets/img/carousel4.webp" alt="" />
-        </div>
-      </div>
-    </section>
-    <section class="content container">
-      <div class="title">
-        <h2>SẢN PHẨM MỚI</h2>
-      </div>
-      <div class="form-group">
-        <select
-          class="form-control"
-          onchange="productType()"
-          name=""
-          id="dropdown_sp"
-        >
-          <option value="All">All Brands</option>
-          <option value="Apple">Iphone</option>
-          <option value="Samsung">Samsung</option>
-        </select>
-      </div>
-      <div class="content_item">
-        <div class="row" id="renderDanhSachUser"></div>
+    <section class="content">
+      <div class="content__sp container" id="renderDeltails">
+        <!-- <h4 class="mt-4 mb-4">Tên điện thoại</h4>
+        <div class="row">
+          <div class="col-12 col-lg-7 content__sp--left">
+            <img
+              src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung-galaxy-z-flip-xam-4_2.jpg"
+              alt=""
+            />
+          </div>
+          <div class="col-12 col-lg-5 content__sp--right">
+            <h4>Thông số kỹ thuật</h4>
+            <div class="specifications">
+              <div class="specifications__item">
+                <p>Tên sản phảm :</p>
+                <span>Samsung Galaxy Z</span>
+              </div>
+              <div class="specifications__item">
+                <p>Kích thước màng hình :</p>
+                <span>6.7 inches</span>
+              </div>
+              <div class="specifications__item">
+                <p>Camera sau :</p>
+                <span
+                  >Camera siêu rộng: 12MP, F2.2, 123°, 1.12 μm, FF Camera chính:
+                  12MP, F1.8, Dual Pixel, 1.8μm, OIS</span
+                >
+              </div>
+              <div class="specifications__item">
+                <p>Camera trước :</p>
+                <span>10MP, F2.4, 1.22μm</span>
+              </div>
+              <div class="specifications__item">
+                <p>Mô tả :</p>
+                <span>6.7 inches</span>
+              </div>
+            </div>
+            <div class="price__sp">
+              <h5>Tạm tính: 19.790.000 VNĐ</h5>
+            </div>
+            <div class="specifications__btn">
+              <button class="btn btn__cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Cart
+              </button>
+              <button class="btn btn__buy">MUA</button>
+            </div>
+          </div>
+        </div> -->
       </div>
     </section>
     <footer>
@@ -241,9 +239,7 @@
         <div class="container">
           <div class="text-txt">
             <div class="row">
-              <div
-                class="col-lg-3 col-sm-6 col-12 pl-lg-5 mt-sm-0 mt-4 footer_brands"
-              >
+              <div class="col-lg-3 col-sm-6 col-12 mt-sm-0 mt-4 footer_brands">
                 <h6>BRANDS</h6>
                 <ul>
                   <li class="cat-item cat-item-2">
@@ -261,9 +257,7 @@
                 </ul>
               </div>
 
-              <div
-                class="col-lg-3 col-sm-6 col-12 pl-lg-5 mt-sm-0 mt-4 footer_useful"
-              >
+              <div class="col-lg-3 col-sm-6 col-12 mt-sm-0 mt-4 footer_useful">
                 <h6>USEFUL LINKS</h6>
                 <ul>
                   <li class="cat-item cat-item-2">
@@ -308,7 +302,7 @@
               </div>
 
               <div
-                class="col-lg-3 col-sm-6 col-12 pl-lg-5 mt-lg-0 mt-sm-5 mt-4 footer_about"
+                class="col-lg-3 col-sm-6 col-12 mt-lg-0 mt-sm-5 mt-4 footer_about"
               >
                 <h6>BCA PHONE</h6>
                 <p>
@@ -351,21 +345,6 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-
-    <!-- slick -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
-      integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script>
-      $(".carousel__content").slick({
-        infinite: true,
-        slidesToShow: 2,
-        slidesToScroll: 2,
-      });
-    </script>
     <!-- roll header -->
     <script>
       window.onscroll = function () {
@@ -394,10 +373,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <!-- lodash sắp xếp -->
-    <script src="
-      https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
     <!-- js -->
-    <script type="module" src="../controllers/index.js"></script>
+    <!-- <script type="module" src="../controllers/index.js"></script> -->
+    <script type="module" src="../controllers/detailSp.js"></script>
   </body>
 </html>

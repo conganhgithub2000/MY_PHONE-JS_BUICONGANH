@@ -2,17 +2,25 @@ import {
   layThongTinTuForm,
   onSuccess,
   renderDSSP,
+  renderListPage,
   showThongTinLenForm,
 } from "./controllers.js";
 import phoneServ from "../services/services.js";
 import { stringToSlug, validation } from "../util/method.js";
 
+let perPage = 10;
+let currentPage = 1;
+let start = 0;
+let end = perPage;
+let totalPages = 3;
+let btnNext = document.querySelector(".btn__next");
+let btnPrev = document.querySelector(".btn__prev");
+
 let fetchProductList = () => {
   phoneServ
     .getList()
     .then(function (res) {
-      renderDSSP(res.data);
-      console.log("res132:", res.data);
+      renderDSSP(res.data, start, end);
     })
     .catch(function (err) {});
 };
@@ -145,6 +153,77 @@ window.arrange = () => {
     })
     .catch(function (err) {});
 };
+
+renderListPage(totalPages);
+//page
+let getCurrentPage = (currentPage) => {
+  start = (currentPage - 1) * perPage;
+  end = currentPage * perPage;
+};
+
+//lùi lại trang
+window.btnPrev = () => {
+  currentPage--;
+  resetActive();
+  if (currentPage <= 1) {
+    currentPage = 1;
+  }
+  if (currentPage == 1) {
+    btnPrev.classList.add("disabled_my");
+  } else {
+    btnNext.classList.remove("disabled_my");
+  }
+  $(`.number__page button:eq(${currentPage - 1})`).addClass("active");
+  getCurrentPage(currentPage);
+  fetchProductList();
+};
+
+//tiến tới 1 trang
+window.btnNext = () => {
+  currentPage++;
+  resetActive();
+  if (currentPage > totalPages) {
+    currentPage = totalPages;
+  }
+  if (currentPage == totalPages) {
+    btnNext.classList.add("disabled_my");
+  } else {
+    btnPrev.classList.remove("disabled_my");
+  }
+  $(`.number__page button:eq(${currentPage - 1})`).addClass("active");
+  getCurrentPage(currentPage);
+  fetchProductList();
+};
+
+let btnPage = document.querySelectorAll("#number__page button");
+btnPage.forEach((button, index) => {
+  button.addEventListener("click", () => {
+    resetActive();
+    let value = index + 1;
+    currentPage = value;
+    button.classList.add("active");
+
+    if (currentPage == totalPages) {
+      btnNext.classList.add("disabled_my");
+    } else {
+      btnNext.classList.remove("disabled_my");
+    }
+    if (currentPage == 1) {
+      btnPrev.classList.add("disabled_my");
+    } else {
+      btnPrev.classList.remove("disabled_my");
+    }
+
+    getCurrentPage(currentPage);
+    fetchProductList();
+  });
+});
+
+function resetActive() {
+  btnPage.forEach((button) => {
+    button.classList.remove("active");
+  });
+}
 
 document.querySelector("#keyword").oninput = function (event) {
   let keySearch = event.target.value;
